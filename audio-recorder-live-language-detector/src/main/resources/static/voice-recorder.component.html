@@ -1,0 +1,12 @@
+<button (click)="startRecording()" [disabled]="isRecording">Start</button>
+<button (click)="stopRecording()" [disabled]="!isRecording">Stop</button>
+
+<div *ngIf="result">
+  <h3>Transcription:</h3>
+  <p>{{ result.transcription }}</p>
+  <h3>Translation:</h3>
+  <p>{{ result.translation }}</p>
+  <h3>Summary:</h3>
+  <p>{{ result.summary }}</p>
+  <a [href]="result.reportPath" download>Download Report</a>
+</div>

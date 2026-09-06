@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RO File Report Generator</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --accent: #38bdf8;
+        --accent-dark: #0ea5e9;
+        --text: #e5e7eb;
+        --muted: #94a3b8;
+        --success: #22c55e;
+        --danger: #ef4444;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #020617, #0f172a 40%, #111827);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(720px, 100%);
+        background: rgba(17, 24, 39, 0.96);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 18px;
+        padding: 28px;
+        box-shadow: 0 20px 45px rgba(14, 165, 233, 0.15);
+      }
+
+      h1 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: clamp(2rem, 3vw, 2.6rem);
+      }
+
+      p {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .controls {
+        display: grid;
+        gap: 16px;
+        margin-top: 24px;
+      }
+
+      label {
+        font-weight: 600;
+      }
+
+      select,
+      button {
+        width: 100%;
+        border-radius: 10px;
+        border: 1px solid rgba(148, 163, 184, 0.25);
+        padding: 12px 14px;
+        font-size: 1rem;
+      }
+
+      select {
+        background: rgba(15, 23, 42, 0.9);
+        color: var(--text);
+      }
+
+      button {
+        background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+        color: #06243b;
+        cursor: pointer;
+        font-weight: 700;
+        border: none;
+        transition: transform 0.2s ease;
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+      }
+
+      button[disabled] {
+        opacity: 0.7;
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      .status {
+        margin-top: 18px;
+        min-height: 24px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .status.error { color: var(--danger); }
+      .status.success { color: var(--success); }
+
+      .output {
+        margin-top: 24px;
+        border-top: 1px solid rgba(148, 163, 184, 0.18);
+        padding-top: 18px;
+      }
+
+      .output h2 {
+        margin-bottom: 12px;
+      }
+
+      .result-block {
+        background: rgba(15, 23, 42, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+        border-radius: 12px;
+        padding: 12px 14px;
+        margin-top: 12px;
+      }
+
+      .result-block strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+        color: var(--text);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="voice-recorder-app"></div>
+    <script src="https://cdn.jsdelivr.net/npm/recordrtc/RecordRTC.min.js"></script>
+    <script type="module" src="./voice-recorder.component.js"></script>
+  </body>
+</html>
